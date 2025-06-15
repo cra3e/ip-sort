@@ -1,0 +1,30 @@
+<div class="grid-table">
+  <!-- Заголовки -->
+  <div class="grid-header" (click)="sort('address')">
+    <span>Адрес назначения</span>
+    <span class="sort-icon">{{ getSortIcon('address') }}</span>
+  </div>
+
+  <div class="grid-header" (click)="sort('gateway')">
+    <span>Шлюз</span>
+    <span class="sort-icon">{{ getSortIcon('gateway') }}</span>
+  </div>
+
+  <div class="grid-header" (click)="sort('interface')">
+    <span>Интерфейс</span>
+    <span class="sort-icon">{{ getSortIcon('interface') }}</span>
+  </div>
+
+  <!-- Строки данных -->
+  <ng-container *ngFor="let route of routes; let i = index">
+    <div class="grid-cell" [class.highlight]="shouldHighlight(i)">
+      {{ route.address }}
+    </div>
+    <div class="grid-cell" [class.highlight]="shouldHighlight(i)">
+      {{ route.gateway }}
+    </div>
+    <div class="grid-cell" [class.highlight]="shouldHighlight(i)">
+      {{ route.interface }}
+    </div>
+  </ng-container>
+</div>
